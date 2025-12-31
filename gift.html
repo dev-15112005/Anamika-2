@@ -4,73 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Gift 💝 | For Anamika</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6A0DAD 0%, #9B30FF 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+        }
+        .gift-box {
+            width: 250px;
+            height: 250px;
+            margin: 40px auto;
+            position: relative;
+            cursor: pointer;
+        }
+        .gift-top {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 270px;
+            height: 70px;
+            background: #FF69B4;
+            border-radius: 10px;
+            transition: transform 1s;
+        }
+        .gift-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 180px;
+            background: #FF69B4;
+            border-radius: 15px;
+        }
+        .ribbon {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .ribbon-knot {
+            width: 40px;
+            height: 40px;
+            background: #FFD700;
+            border-radius: 50%;
+        }
+        .love-letter {
+            display: none;
+            margin: 40px auto;
+            max-width: 500px;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            color: #333;
+        }
+        .letter-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .letter-heart {
+            font-size: 36px;
+            color: #FF69B4;
+        }
+        .love-message {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background: linear-gradient(45deg, #FF69B4, #FF1493);
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .back-btn { background: rgba(255, 255, 255, 0.1); color: white; }
+        .next-btn { background: #FF69B4; color: white; }
+    </style>
 </head>
-<body class="gift-page">
-    <!-- Purple Background -->
-    <div class="purple-bg"></div>
-    
-    <!-- Gift Content -->
-    <div class="gift-container">
-        <div class="gift-header">
+<body>
+    <div class="container">
+        <div class="header">
             <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
             <h1><i class="fas fa-gift"></i> Your Special Gift</h1>
+            <div style="width:80px"></div>
         </div>
         
-        <!-- Gift Box -->
-        <div class="gift-box-container">
-            <div class="gift-box" id="giftBox">
-                <div class="gift-box-top">
-                    <div class="ribbon">
-                        <div class="ribbon-knot"></div>
-                    </div>
+        <div class="gift-box" id="giftBox" onclick="openGift()">
+            <div class="gift-top" id="giftTop">
+                <div class="ribbon">
+                    <div class="ribbon-knot"></div>
                 </div>
-                <div class="gift-box-bottom"></div>
             </div>
-            <p class="gift-instruction">Click the gift to open!</p>
+            <div class="gift-bottom"></div>
         </div>
+        <p>Click the gift box to open!</p>
         
-        <!-- Love Letter -->
-        <div id="loveLetter" class="love-letter">
-            <div class="letter-content">
-                <div class="letter-header">
-                    <div class="letter-heart"><i class="fas fa-heart"></i></div>
-                    <h2>For My Chhoti Si Jaan ❤️</h2>
-                </div>
-                
-                <div class="letter-body">
-                    <p>My Dearest <strong>Anamika</strong>,</p>
-                    
-                    <p>Every moment with you feels like a beautiful dream.</p>
-                    
-                    <div class="love-message">
-                        I Love You Meri Chhoti Si Jaan ❤️😘<br>
-                        Always Keep Smile On Ur Face
-                    </div>
-                    
-                    <p>You are the most beautiful person I know.</p>
-                    
-                    <div class="letter-signature">
-                        <p>Forever Yours,</p>
-                        <div class="signature">Dev ❤️</div>
-                    </div>
-                </div>
+        <div class="love-letter" id="loveLetter">
+            <div class="letter-header">
+                <div class="letter-heart"><i class="fas fa-heart"></i></div>
+                <h2>For My Chhoti Si Jaan ❤️</h2>
+            </div>
+            
+            <p>My Dearest <strong>Anamika</strong>,</p>
+            <p>Every moment with you feels like a beautiful dream.</p>
+            
+            <div class="love-message">
+                I Love You Meri Chhoti Si Jaan ❤️😘<br>
+                Always Keep Smile On Ur Face
+            </div>
+            
+            <p>You are the most beautiful person I know.</p>
+            
+            <div style="text-align:right; margin-top:30px;">
+                <p>Forever Yours,</p>
+                <div style="font-family:'Dancing Script';font-size:28px;color:#6A0DAD">Dev ❤️</div>
             </div>
         </div>
         
-        <!-- Navigation -->
-        <div class="page-navigation">
-            <button id="backBtn" class="nav-btn back-btn">
+        <div class="navigation">
+            <button class="nav-btn back-btn" onclick="window.location.href='index.html'">
                 <i class="fas fa-arrow-left"></i> Back
             </button>
-            <button id="nextBtn" class="nav-btn next-btn">
+            <button class="nav-btn next-btn" onclick="goToCountdown()">
                 Next <i class="fas fa-arrow-right"></i>
             </button>
         </div>
     </div>
-    
-    <script src="script.js"></script>
+
+    <script>
+        let giftOpened = false;
+        
+        function openGift() {
+            if(giftOpened) return;
+            
+            giftOpened = true;
+            document.getElementById('giftTop').style.transform = 'translateX(-50%) rotateX(180deg)';
+            
+            setTimeout(() => {
+                document.getElementById('giftBox').style.display = 'none';
+                document.getElementById('loveLetter').style.display = 'block';
+            }, 1000);
+        }
+        
+        function goToCountdown() {
+            if(!giftOpened) {
+                alert('Please open the gift first! 🎁');
+                return;
+            }
+            window.location.href = 'countdown.html';
+        }
+    </script>
 </body>
 </html>
