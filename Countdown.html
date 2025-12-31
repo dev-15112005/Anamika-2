@@ -1,67 +1,182 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Year 2026 🎉 | Countdown</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%);
+            min-height: 100vh;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #FFD700, #FF69B4, #4A90E2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        .time-unit {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 120px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .time-value {
+            font-size: 56px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(45deg, #FFD700, #FF69B4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .time-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+        }
+        .new-year-message {
+            display: none;
+            margin: 50px 0;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .year-display {
+            font-size: 100px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FF1493, #4A90E2, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 20px 0;
+        }
+        .creator {
+            margin-top: 60px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+    </style>
 </head>
-<body class="countdown-page">
-    <!-- Countdown Container -->
-    <div class="countdown-container">
-        <!-- Header -->
-        <div class="countdown-header">
-            <h1><i class="fas fa-clock"></i> New Year 2026 Countdown</h1>
-            <p>Waiting for the magical moment with you, Anamika! ❤️</p>
-        </div>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-clock"></i> New Year 2026 Countdown</h1>
+        <p>Waiting for the magical moment with you, Anamika! ❤️</p>
         
-        <!-- Countdown Timer -->
-        <div class="countdown-timer" id="countdownTimer">
+        <div class="countdown" id="countdown">
             <div class="time-unit">
                 <div class="time-value" id="days">00</div>
                 <div class="time-label">Days</div>
             </div>
-            <div class="time-separator">:</div>
             <div class="time-unit">
                 <div class="time-value" id="hours">00</div>
                 <div class="time-label">Hours</div>
             </div>
-            <div class="time-separator">:</div>
             <div class="time-unit">
                 <div class="time-value" id="minutes">00</div>
                 <div class="time-label">Minutes</div>
             </div>
-            <div class="time-separator">:</div>
             <div class="time-unit">
                 <div class="time-value" id="seconds">00</div>
                 <div class="time-label">Seconds</div>
             </div>
         </div>
         
-        <!-- Target Date -->
-        <div class="target-date">
-            <p>Counting down to: <strong>January 1, 2026 00:00:00</strong></p>
+        <p>Counting down to: <strong>January 1, 2026 00:00:00</strong></p>
+        
+        <div class="new-year-message" id="newYearMessage">
+            <h2 style="font-size:42px;color:#FF1493">🎉 HAPPY NEW YEAR 2026! 🎉</h2>
+            <div class="year-display">2026</div>
+            <p style="font-size:20px">Wishing you a year filled with Love & Happiness!</p>
+            <p style="font-size:18px;color:rgba(255,255,255,0.8)">May all your dreams come true, my dear Anamika! ❤️</p>
         </div>
         
-        <!-- New Year Message -->
-        <div id="newYearMessage" class="new-year-message">
-            <h2>🎉 HAPPY NEW YEAR 2026! 🎉</h2>
-            <div class="message-content">
-                <div class="year-display">2026</div>
-                <p>Wishing you a year filled with Love & Happiness!</p>
-                <p class="personal-message">May all your dreams come true, my dear Anamika! ❤️</p>
-            </div>
-        </div>
-        
-        <!-- Creator Signature -->
-        <div class="creator-signature">
-            <h3>Craft By <span class="highlight">Dev Maurya</span></h3>
+        <div class="creator">
+            <h3>Craft By <span style="background:linear-gradient(45deg,#FF69B4,#4A90E2);-webkit-background-clip:text;color:transparent;">Dev Maurya</span></h3>
             <p>The Professional Web Developer & Creator</p>
         </div>
     </div>
-    
-    <script src="script.js"></script>
+
+    <script>
+        const targetDate = new Date('January 1, 2026 00:00:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').style.display = 'none';
+                document.getElementById('newYearMessage').style.display = 'block';
+                
+                // Celebration effects
+                for(let i=0; i<50; i++) {
+                    setTimeout(createFirework, i*100);
+                }
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.style.cssText = `
+                position: fixed;
+                left: ${Math.random()*100}%;
+                top: ${Math.random()*100}%;
+                width: 5px;
+                height: 5px;
+                background: hsl(${Math.random()*360}, 100%, 50%);
+                border-radius: 50%;
+                z-index: 100;
+                pointer-events: none;
+            `;
+            document.body.appendChild(firework);
+            
+            firework.animate([
+                { transform: 'scale(0)', opacity: 1 },
+                { transform: 'scale(3)', opacity: 0.8 },
+                { transform: 'scale(0)', opacity: 0 }
+            ], { duration: 1500 });
+            
+            setTimeout(() => firework.remove(), 1500);
+        }
+        
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
