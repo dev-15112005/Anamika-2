@@ -4,77 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Love ❤️ | जय श्री राम</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* INLINE STYLE - GitHub Pages के लिए बेस्ट */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(135deg, #00008B 0%, #8B0000 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .brand-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .heart-pulse {
+            font-size: 42px;
+            color: #FF6B6B;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .brand-header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            background: linear-gradient(45deg, #FF6B6B, #4A90E2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #4A90E2;
+            font-size: 20px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #8B0000, #FF6B6B);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .login-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
 </head>
-<body class="login-page">
-    <!-- Falling Hearts -->
-    <div class="hearts-container"></div>
-    
-    <!-- Login Container -->
+<body>
     <div class="login-container">
         <div class="brand-header">
             <div class="brand-logo">
                 <div class="heart-pulse"><i class="fas fa-heart"></i></div>
-                <h1>For My <span class="highlight">Jaan</span> ❤️</h1>
+                <h1>For My <span style="color:#FF6B6B">Jaan</span> ❤️</h1>
             </div>
-            <p class="tagline">A Special Place Just For You</p>
+            <p>Enter your special credentials</p>
         </div>
         
-        <!-- Login Form -->
         <div class="form-container">
-            <form id="loginForm" class="login-form">
-                <div class="input-group">
-                    <div class="input-icon"><i class="fas fa-user-circle"></i></div>
-                    <input type="text" id="username" placeholder="Enter Username" value="Anamika Maurya" required>
-                    <div class="input-label">Username</div>
-                </div>
-                
-                <div class="input-group">
-                    <div class="input-icon"><i class="fas fa-key"></i></div>
-                    <input type="password" id="password" placeholder="Enter Password" value="15112005" required>
-                    <div class="input-label">Password</div>
-                </div>
-                
-                <button type="submit" class="login-btn">
-                    <i class="fas fa-heart"></i> Unlock My Heart
-                </button>
-            </form>
-            
-            <!-- Face Login -->
-            <div class="face-login-section">
-                <div class="divider"><span>OR</span></div>
-                <div class="face-login-box">
-                    <h3><i class="fas fa-camera"></i> Face Recognition Login</h3>
-                    <div class="camera-preview">
-                        <div class="camera-frame">
-                            <div class="camera-lens">
-                                <div class="scanning-effect"></div>
-                            </div>
-                            <div class="face-outline">
-                                <div class="face-dots">
-                                    <span class="dot dot1"></span>
-                                    <span class="dot dot2"></span>
-                                    <span class="dot dot3"></span>
-                                    <span class="dot dot4"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button id="faceLoginBtn" class="face-login-btn">
-                        <i class="fas fa-smile-wink"></i> Login with Face
-                    </button>
-                </div>
+            <div class="input-group">
+                <div class="input-icon"><i class="fas fa-user-circle"></i></div>
+                <input type="text" id="username" placeholder="Username" value="Anamika Maurya">
             </div>
+            
+            <div class="input-group">
+                <div class="input-icon"><i class="fas fa-key"></i></div>
+                <input type="password" id="password" placeholder="Password" value="15112005">
+            </div>
+            
+            <button class="login-btn" onclick="login()">
+                <i class="fas fa-heart"></i> Unlock My Heart
+            </button>
         </div>
         
-        <!-- Footer -->
         <div class="login-footer">
-            <p>Made with <i class="fas fa-heartbeat"></i> by Dev Maurya</p>
+            <p>Made with <i class="fas fa-heartbeat" style="color:#FF6B6B"></i> by Dev Maurya</p>
         </div>
     </div>
-    
-    <script src="script.js"></script>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if(username === "Anamika Maurya" && password === "15112005") {
+                alert("Login Successful! Redirecting to your gift... ❤️");
+                window.location.href = "gift.html";
+            } else {
+                alert("Incorrect credentials. Try: Anamika Maurya / 15112005");
+            }
+        }
+        
+        // Auto login on Enter key
+        document.addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') login();
+        });
+    </script>
 </body>
 </html>
